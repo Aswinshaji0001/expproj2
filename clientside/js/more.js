@@ -44,7 +44,7 @@ async function getDonors() {
                         </tr>
                         <tr>
                             <td class="actions" align="right">
-                            <a href="./pages/edit.html?id=${employ._id}"><button class="button-3">Edit</button></a>
+                            <a href="../pages/edit.html?id=${employ._id}"><button class="button-3">Edit</button></a>
                             </td>
                             <td class="actions" >
                                 <button  class="button-3" onclick="deleteEmploy('${employ._id}')">Delete</button>
