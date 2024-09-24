@@ -9,12 +9,12 @@
     align-items: center;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid black;
 }
 .cos1{
         width: 1000px;
         height: 600px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
         display: flex;
 }
 .cos2 img{
@@ -37,7 +37,7 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #5e74ac;
 }
 
 tr:hover {
@@ -113,4 +113,10 @@ table{
 .button-3:active {
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+.contents{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
 }

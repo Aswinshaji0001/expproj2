@@ -163,9 +163,11 @@ tr:hover {
 }
 
 .card-image {
-    width: 100%;
-    height: 220px; /* Fixed height for image */
-    object-fit: cover; /* Maintains aspect ratio */
+    width: 85%;
+    height: 260px; /* Fixed height for image */
+    object-fit: cover;
+    background-position: center;
+    background-size: cover; /* Maintains aspect ratio */
 }
 
 .card-content {
@@ -214,5 +216,7 @@ tr:hover {
 .large-card{
     display: flex;
     justify-content: center;
+    text-align: center;
+    object-fit: cover;
 
 }
