@@ -86,88 +86,6 @@ input[type="text"] {
 input[type="text"]:focus{
     outline: none;
 } 
-.contents{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    margin-top: 2%;
-    
-}
-.content{
-
-    width: 21rem;
-    height: 34rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1% 2%;
-    margin-top: 2%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 2%;
-    animation: fadeIn 0.8s ease-in-out;
-    text-align: center;
-    align-items: center;
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-.img{
-    width: 100%;
-    height: 60%;
-}
-.img img{
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    border-radius: 50%;
-}
-.details{
-    width: 100%;
-    height: 40%;
-}
-
-.details table {
-    height: 100%;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 2px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #f9f9f9;
-}
-
-td[align="center"] {
-    text-align: center;
-}
-
-.actions button {
-    margin-right: 5px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: rgb(8, 102, 14);
-    color: white;
-    transition: background-color 0.3s ease;
-}
-.actions button:hover {
-    background-color: #faf8f8;
-    color: rgb(8, 102, 14);
-    outline: 1px solid rgb(8, 102, 14);
-}
 /* .container{
     width: 100%;
     display: flex;
@@ -227,88 +145,74 @@ tr:hover {
 }
 
 */
-.c1{
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Card width */
+    height: 400px; /* Card height */
+    margin: 20px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    width: 450px;
-    height: 500px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+.card:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
-.c2{
-    width: 60%;
-    height: 60%;
-    text-align: center;
-    border-radius: 8px;
-}
-.c2 img{
+
+.card-image {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: 220px; /* Fixed height for image */
+    object-fit: cover; /* Maintains aspect ratio */
 }
-.btn1{
-    margin-top: 5%;
-    width: 100px;
-    height: 35px;
-    background:linear-gradient(45deg,rgb(146, 250, 146),rgb(130, 255, 147),rgb(66, 239, 60),rgb(130, 255, 130),rgb(188, 248, 194)) ;
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Column layout for content */
+    justify-content: space-between; /* Spacing between elements */
+}
+
+.card-name {
+    font-size: 1.7em; /* Clear and readable */
+    margin: 0;
+    color: #333;
+    font-weight: 600; /* Semi-bold for emphasis */
+}
+
+.card-designation {
+    font-size: 1.1em; /* Slightly smaller for contrast */
+    color: #777; /* Softer color for designation */
+    margin: 5px 0 15px; /* Spacing adjustments */
+}
+
+.see-more {
+    background-color: #7cca23;
     color: white;
     border: none;
-    box-shadow: 1px 1px 2px 2px;
-}
-table{
-    width: 100%;
-    height: 100%;
-}
-.button-3 {
-    margin-top: 5%;
-    appearance: none;
-    background-color: #2ea44f;
-    border: 1px solid rgba(27, 31, 35, .15);
-    border-radius: 6px;
-    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-    box-sizing: border-box;
-    color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px; /* Balanced padding */
     cursor: pointer;
-    display: inline-block;
-    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 6px 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-  
-  .button-3:focus:not(:focus-visible):not(.focus-visible) {
-    box-shadow: none;
-    outline: none;
-  }
-  
-  .button-3:hover {
-    background-color: #2c974b;
-  }
-  
-  .button-3:focus {
-    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-    outline: none;
-  }
-  
-  .button-3:disabled {
-    background-color: #94d3a2;
-    border-color: rgba(27, 31, 35, .1);
-    color: rgba(255, 255, 255, .8);
-    cursor: default;
-  }
-  
-  .button-3:active {
-    background-color: #298e46;
-    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
-  }
+    font-size: 1em; /* Standard font size */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start; /* Aligns the button to the start */
+}
+
+.see-more:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Optional: Add a responsive design */
+@media (max-width: 400px) {
+    .card {
+        width: 90%; /* Full width on smaller screens */
+    }
+}
+.large-card{
+    display: flex;
+    justify-content: center;
+
+}

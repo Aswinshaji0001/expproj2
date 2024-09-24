@@ -5,7 +5,7 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
     let data=await res.json();
 
     console.log(data.msg);
-    count=parseInt(data.msg)+1000;
+    count=parseInt(data.msg)+1010;
     console.log(count);
     const empid="NOV"+count;
     const name=document.getElementById("name").value;
@@ -24,7 +24,7 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
             alert("success");
             window.location.href="../index.html"
         }else if(res.status==400){
-            alert("Phone no. already exist")
+            alert("empid already exists")
         }
         else{
             alert("error")

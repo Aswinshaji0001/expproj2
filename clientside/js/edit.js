@@ -1,9 +1,11 @@
+let profile
 const url=window.location.href;
 const urlParams=new URLSearchParams(url.split("?")[1]);
 const id=urlParams.get("id");
 async function getDonor() {
     const res=await fetch(`http://localhost:3000/api/getemploy/${id}`)
     const employ=await res.json();
+    // employ.profile=profile;
     document.getElementById("frm").innerHTML=`
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="${employ.name}">
@@ -22,6 +24,14 @@ async function getDonor() {
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" value="${employ.email}">
+
+            <div class="prf">
+                <img src="${employ.profile}" class="prfimg" id="proimg" alt="">
+            </div>
+
+             <label for="profile">Profile</label>
+            <input type="file" id="profile" name="profile" onchange="pic()">
+
             <div class="buttons">
                 <button >Submit</button>
                 <button type="reset">Reset</button>
@@ -42,7 +52,7 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
     const res=await fetch(`http://localhost:3000/api/editemploy/${id}`,{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({name,salary,experience,designation,phone,email})
+        body:JSON.stringify({name,salary,experience,designation,phone,email,profile})
     })
     if(res.status==201){
         alert("Updated")
@@ -55,3 +65,22 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
         
     }
 })
+async function pic() {
+    console.log(document.getElementById("profile").files[0]);
+    profile = await convertTBase64(document.getElementById("profile").files[0])
+    console.log(profile)
+    document.getElementById("proimg").src=profile
+}
+
+function convertTBase64(file){
+    return new Promise((resolve,reject)=>{
+        const fileReader=new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload=()=>{
+            resolve(fileReader.result)
+        }
+        fileReader.onerror=(error)=>{
+            reject(error)
+        }
+    });
+}

@@ -4,24 +4,34 @@ async function getDonors() {
     console.log(employees);
     str=``;
     employees.map((employ)=>{
+        // str+=`
+        // <div class="c1">
+        //     <div class="c2">
+        //         <img src="${employ.profile}" alt="${employ.empname}">
+        //     </div>
+        //     <div class="c3">
+        //         <table>
+        //             <tr>
+        //                 <th>Name</th>
+        //                 <td>${employ.name}</td>
+        //             </tr>
+        //             <tr>
+        //                 <th>Designation</th>
+        //                 <td>${employ.designation}</td>
+        //             </tr>
+        //         </table>
+        //         <a href="./pages/more.html?id=${employ._id}"><button class="button-3">See more</button></a>
+        // </div>
+        // </div>
+        // `
         str+=`
-        <div class="c1">
-            <div class="c2">
-                <img src="${employ.profile}" alt="${employ.empname}">
-            </div>
-            <div class="c3">
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <td>${employ.name}</td>
-                    </tr>
-                    <tr>
-                        <th>Designation</th>
-                        <td>${employ.designation}</td>
-                    </tr>
-                </table>
-                <a href="./pages/more.html?id=${employ._id}"><button class="button-3">See more</button></a>
-        </div>
+            <div class="card">
+        <img src="${employ.profile}" alt="${employ.name}" class="card-image">
+        <div class="card-content">
+        <h2 class="card-name" value="${employ.name}">${employ.name}</h2>
+        <p class="card-designation" value="${employ.designation}">${employ.designation}</p>
+         <a href="./pages/more.html?id=${employ._id}"><button class="see-more">See More</button></a>
+         </div>
         </div>
         `
     });
