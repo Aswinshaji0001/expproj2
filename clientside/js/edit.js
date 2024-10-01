@@ -3,7 +3,7 @@ const url=window.location.href;
 const urlParams=new URLSearchParams(url.split("?")[1]);
 const id=urlParams.get("id");
 async function getDonor() {
-    const res=await fetch(`http://localhost:3000/api/getemploy/${id}`)
+    const res=await fetch(`http://localhost:3015/api/getemploy/${id}`)
     const employ=await res.json();
     // employ.profile=profile;
     document.getElementById("frm").innerHTML=`
@@ -49,7 +49,7 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
     const designation=document.getElementById("designation").value;
     const phone=parseInt(document.getElementById("phone").value);
     const email=document.getElementById("email").value;
-    const res=await fetch(`http://localhost:3000/api/editemploy/${id}`,{
+    const res=await fetch(`http://localhost:3015/api/editemploy/${id}`,{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({name,salary,experience,designation,phone,email,profile})

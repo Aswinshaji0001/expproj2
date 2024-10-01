@@ -1,5 +1,5 @@
 async function getDonors() {
-    const res=await fetch("http://localhost:3000/api/getemployees");
+    const res=await fetch("http://localhost:3015/api/getemployees");
     const employees=await res.json();
     console.log(employees);
     str=``;
@@ -40,7 +40,7 @@ async function getDonors() {
 getDonors();
 
 async function deleteEmploy(id) {
-  fetch(`http://localhost:3000/api/deleteemploy/${id}`,{
+  fetch(`http://localhost:3015/api/deleteemploy/${id}`,{
     method:"DELETE",
         headers:{"Content-Type":"application/json"}
   }).then((res)=>{

@@ -1,6 +1,8 @@
 import employSchema from './models/employ.model.js'
 import bcrypt from "bcrypt"
 import userSchema from './models/user.model.js'
+import pkg from "jsonwebtoken";
+const {sign}=pkg;
 export async function countEmployees(req,res) {
     try {
         const count=await employSchema.countDocuments({});
@@ -87,9 +89,11 @@ export async function signUp(req,res) {
             userSchema
             .create({email,username,password:hashedPassword})
             .then(()=>{
+                console.log("success");
                 return res.status(201).send({msg:"successs"})
             })
             .catch((error)=>{
+                console.log("faliure");
                 return res.status(404).send({msg:"not registered"})
 
             })
@@ -99,5 +103,27 @@ export async function signUp(req,res) {
         return res.status(404).send({msg:error})
 
     }
+    
+}
+
+export async function signIn(req,res) {
+    console.log(req.body);
+    const{email,password}=req.body;
+    if(!(email&& password))
+        return res.status(404).send({msg:"fields are empty"});
+    const user=await userSchema.findOne({email});
+    console.log(user);
+    if(user===null){
+        return res.status(404).send({msg:"Invalid username"});
+    }
+    const success=await bcrypt.compare(password,user.password);
+    console.log(success);
+    if(success!==true)
+        return res.status(404).send({msg:"email or password is invalid"});
+    const token = await sign({userId:userSchema._id},process.env.JWT_KEY,{expiresIn:"24h"});
+    console.log(token);
+    return res.status(200).send({msg:"successfully logged in",token})
+    
+    
     
 }

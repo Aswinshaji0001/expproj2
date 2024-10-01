@@ -1,7 +1,7 @@
 let profile;
 document.getElementById("frm").addEventListener("submit",async(e)=>{
     e.preventDefault();
-    const res=await fetch("http://localhost:3000/api/countemployees");
+    const res=await fetch("http://localhost:3015/api/countemployees");
     let data=await res.json();
 
     console.log(data.msg);
@@ -14,7 +14,7 @@ document.getElementById("frm").addEventListener("submit",async(e)=>{
     const designation=document.getElementById("designation").value;
     const phone=parseInt(document.getElementById("phone").value);
     const email=document.getElementById("email").value;
-    fetch("http://localhost:3000/api/addemp",{
+    fetch("http://localhost:3015/api/addemp",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({empid,name,salary,experience,designation,phone,email,profile})

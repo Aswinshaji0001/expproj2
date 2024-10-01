@@ -4,7 +4,7 @@ const id=urlParams.get("id");
 console.log(id);
 
 async function getDonors() {
-    const res=await fetch(`http://localhost:3000/api/getemploy/${id}`)
+    const res=await fetch(`http://localhost:3015/api/getemploy/${id}`)
     const employ=await res.json();
    document.getElementById("cos").innerHTML=`
         <div class="cos1">
@@ -58,7 +58,7 @@ async function getDonors() {
 getDonors();
 
 async function deleteEmploy(id) {
-  fetch(`http://localhost:3000/api/deleteemploy/${id}`,{
+  fetch(`http://localhost:3015/api/deleteemploy/${id}`,{
     method:"DELETE",
         headers:{"Content-Type":"application/json"}
   }).then((res)=>{
