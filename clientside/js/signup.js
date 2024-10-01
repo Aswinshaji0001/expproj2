@@ -1,4 +1,5 @@
 document.getElementById("signup").addEventListener("submit",async(e)=>{
+    e.preventDefault();
     const username=document.getElementById("username").value;
     const email=document.getElementById("email").value;
     const password=document.getElementById("password").value;
@@ -16,6 +17,9 @@ document.getElementById("signup").addEventListener("submit",async(e)=>{
             window.location.href="../index.html"
         }
         else if (res.status==404){
+            alert("error")
+        }
+        else{
             alert("error")
         }
         
