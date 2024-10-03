@@ -6,9 +6,12 @@ document.getElementById("signin").addEventListener("submit",async(e)=>{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({email,password})
-    }).then((res)=>{
+    }).then(async (res)=>{
         console.log(res);
         if(res.status==200){
+            const result= await res.json();
+            localStorage.setItem(result.token,result.token)
+            console.log(result);
             alert("success")
             console.log(res);        
             window.location.href="../index.html"
