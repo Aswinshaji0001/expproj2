@@ -1,11 +1,11 @@
 import pkg from 'jsonwebtoken'
-
+const {verify}=pkg;
 export default async function Auth(req,res,next) {
     try{
         const key = req.headers.authorization;
-        console.log(key);
+        console.log(req.headers.authorization);
         if(!key)
-         return res.status(403).send({ msg: "Aunauthorized acess"});
+         return res.status(403).send({ msg: "Auauthorized acess"});
 
         const token = key.split(" ")[1];
         console.log(token);
