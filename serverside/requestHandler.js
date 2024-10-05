@@ -35,7 +35,8 @@ export async function getEmployees(req,res) {
         const _id = req.user.userId;
         const user = await userSchema.findOne({_id});
         console.log(user);
-        if(!user) return res.status(403).send({msg:"Unauthorized access"})
+        if(!user) 
+            return res.status(403).send({msg:"Unauthorized access"})
         const employees=await employSchema.find();
         res.status(200).send({employees,username:user.username})
         
@@ -125,7 +126,8 @@ export async function signIn(req,res) {
     console.log(success);
     if(success!==true)
         return res.status(404).send({msg:"email or password is invalid"});
-    const token = await sign({userId:userSchema._id},process.env.JWT_KEY,{expiresIn:"24h"});
+
+    const token = await sign({userId:user._id},process.env.JWT_KEY,{expiresIn:"24h"});
     console.log(token);
     return res.status(200).send({msg:"successfully logged in",token})
     

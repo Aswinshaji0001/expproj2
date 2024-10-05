@@ -12,6 +12,8 @@ export default async function Auth(req,res,next) {
         
         const auth = await verify(token,process.env.JWT_KEY);
         req.user=auth;
+        console.log(auth);
+        
         next();
         
     }

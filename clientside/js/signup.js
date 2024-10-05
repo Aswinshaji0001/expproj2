@@ -14,7 +14,7 @@ document.getElementById("signup").addEventListener("submit",async(e)=>{
         if(res.status==201){
             alert("success")
             console.log(res);  
-            window.location.href="../index.html"
+            window.location.href="../pages/signin.html"
         }
         else if (res.status==404){
             alert("error")

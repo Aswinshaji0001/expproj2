@@ -1,4 +1,4 @@
-const value = localstorage.getItem("Auth");
+const value = localStorage.getItem("Auth");
 async function getDonors() {
     const res=await fetch("http://localhost:3015/api/getemployees",{headers:{
         "Authorization" : `Bearer ${value}`}});
@@ -23,7 +23,7 @@ async function getDonors() {
     }
     else{
         alert(employees.msg)
-        window.location.href="../pages/sigin.html"
+        window.location.href="../pages/signin.html"
     }
    
 }
@@ -109,5 +109,5 @@ document.getElementById("filter").addEventListener('keyup',async(e)=>{
 })
 function logout(){
     localStorage.removeItem("Auth");
-    window.location.href="../pages/sigin.html"
+    window.location.href="../pages/signin.html"
 }
