@@ -14,10 +14,9 @@ function submitPassword() {
             body:JSON.stringify({email,password})
         }).then(async (res)=>{
             const result=await res.json();
-            console.log("haii");
             if(res.status==200){
-                
                 localStorage.removeItem("email")
+                console.log("haii");
                 window.location.href="../pages/signin.html"
             }else if(res.status==404){
                 alert(result.msg)
